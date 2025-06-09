@@ -6,7 +6,7 @@ Simple python script to launch minecraft with an access token
 - Have Python installed (-_-)
 - Open Terminal where the main.py file is
 - Run
-```python
+```cmd
 py -m pip install -r requirements.txt
 py main.py
 ```
