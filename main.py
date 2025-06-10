@@ -3,6 +3,25 @@ import subprocess
 import requests
 import uuid
 
+
+# --- USER SETTINGS ---
+# -VERSION-
+# latest_version = minecraft_launcher_lib.utils.get_latest_version()["release"]
+# or just use the version number
+version = "1.8.9"  # The version to launch
+# ---
+
+# -Player Username-
+username = "" # The player's username
+# ---
+
+# -Player Access Token-
+access_token = ""  # The access token
+
+# --- END OF SETTINGS ---
+
+
+
 def add_dashes(uuid_hex: str) -> str:
     return str(uuid.UUID(hex=uuid_hex))
 
@@ -14,17 +33,9 @@ def get_uuid(username):
     data = resp.json()
     return data.get("id")
 
-
-# latest_version = minecraft_launcher_lib.utils.get_latest_version()["release"]
-# or just use the version number
-version = "1.8.9"  # The version to launch
-
 minecraft_directory = minecraft_launcher_lib.utils.get_minecraft_directory()
 
 minecraft_launcher_lib.install.install_minecraft_version(version, minecraft_directory)
-
-username = "" # The player's username
-access_token = ""  # The access token
 
 puuid = add_dashes(get_uuid(username))
 options = {
