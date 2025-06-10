@@ -9,7 +9,8 @@ def add_dashes(uuid_hex: str) -> str:
 def get_uuid(username):
     url = f"https://api.mojang.com/users/profiles/minecraft/{username}"
     resp = requests.get(url)
-    resp.raise_for_status()
+    if resp.status_code == 404:
+        raise Exception(f"User '{username}' not found")
     data = resp.json()
     return data.get("id")
 
