@@ -1,5 +1,18 @@
 import minecraft_launcher_lib
 import subprocess
+import requests
+import uuid
+
+def add_dashes(uuid_hex: str) -> str:
+    return str(uuid.UUID(hex=uuid_hex))
+
+def get_uuid(username):
+    url = f"https://api.mojang.com/users/profiles/minecraft/{username}"
+    resp = requests.get(url)
+    resp.raise_for_status()
+    data = resp.json()
+    return data.get("id")
+
 
 # latest_version = minecraft_launcher_lib.utils.get_latest_version()["release"]
 # or just use the version number
@@ -10,12 +23,12 @@ minecraft_directory = minecraft_launcher_lib.utils.get_minecraft_directory()
 minecraft_launcher_lib.install.install_minecraft_version(version, minecraft_directory)
 
 username = "" # The player's username
-uuid = "xx-xx-xx-xx"  # Get from namemc.com - with dash's
 access_token = ""  # The access token
 
+puuid = add_dashes(get_uuid(username))
 options = {
     "username": username,
-    "uuid": uuid,
+    "uuid": puuid,
     "token": access_token
 }
 
