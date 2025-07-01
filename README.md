@@ -1,13 +1,30 @@
-## Minecraft-Launch-via-token
-Simple python script to launch minecraft with an access token
+# Minecraft Launch via Token
 
-# How to run
-- Download
-- Have Python installed (-_-)
-- Open `main.py` with any text editor and fill in the access token and username (There are comments to help you out in getting that information *expect to get token*)
-- Open Terminal where the main.py file is
-- Run
-```cmd
-py -m pip install -r requirements.txt
-py main.py
-```
+A simple Python script that launches Minecraft using a provided access token.
+
+## Features
+
+- Lightweight and easy to use
+- Launches Minecraft with any valid access token
+- Supports specifying the Minecraft version at runtime
+
+## Prerequisites
+
+- Python 3.7 or higher must be installed
+- A valid Minecraft access token
+- Java must be properly configured on your system to run Minecraft
+
+## Setup & Usage
+
+1. **Clone or download this repository**
+
+2. **Install dependencies**  
+   Open a terminal in the project directory and run:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. **Run the launcher**
+  ```bash
+  python main.py
+  ```
+
